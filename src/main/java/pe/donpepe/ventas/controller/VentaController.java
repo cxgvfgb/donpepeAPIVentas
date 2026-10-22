@@ -21,7 +21,7 @@ public class VentaController {
     }
 
     @PostMapping("/calcular")
-    public VentaResponse calcular(@RequestBody(required = false) VentaRequest venta) {
+    public VentaResponse calcular(@RequestBody VentaRequest venta) {
         validar(venta);
         return calculadora.calcular(venta);
     }
@@ -30,7 +30,8 @@ public class VentaController {
         if (venta == null) {
             throw new ValidacionException("Los datos de la venta son obligatorios");
         }
-        if (venta.nombre() == null || venta.nombre().isBlank()) {
+        String nombre = venta.nombre() != null ? venta.nombre().trim() : null;
+        if (nombre == null || nombre.isBlank()) {
             throw new ValidacionException("El nombre del cliente es obligatorio");
         }
         if (venta.producto() == null || venta.producto().isBlank()) {
