@@ -35,6 +35,8 @@ public class CalculadoraVenta {
         BigDecimal totalPagar = redondear(totalConIgv.add(comision));
 
         return new VentaResponse(
+                venta.nombre(),
+                venta.producto(),
                 subtotal,
                 descuento,
                 subtotalConDescuento,

@@ -30,6 +30,12 @@ public class VentaController {
         if (venta == null) {
             throw new ValidacionException("Los datos de la venta son obligatorios");
         }
+        if (venta.nombre() == null || venta.nombre().isBlank()) {
+            throw new ValidacionException("El nombre del cliente es obligatorio");
+        }
+        if (venta.producto() == null || venta.producto().isBlank()) {
+            throw new ValidacionException("El nombre del producto es obligatorio");
+        }
         if (venta.cantidad() == null) {
             throw new ValidacionException("La cantidad es obligatoria");
         }
