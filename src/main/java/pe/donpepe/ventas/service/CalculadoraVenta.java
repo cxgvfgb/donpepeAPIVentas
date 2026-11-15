@@ -14,7 +14,6 @@ public class CalculadoraVenta {
     private static final BigDecimal TASA_IGV = new BigDecimal("0.18");
     private static final BigDecimal TASA_COMISION = new BigDecimal("0.03");
 
-    // Responsabilidad unica: calcular importes de la venta.
     public VentaResponse calcular(VentaRequest venta) {
         BigDecimal subtotal = redondear(
                 venta.precioUnitario().multiply(BigDecimal.valueOf(venta.cantidad()))
