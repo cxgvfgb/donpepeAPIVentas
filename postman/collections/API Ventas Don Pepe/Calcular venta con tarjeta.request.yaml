@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/api/ventas/calcular"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "nombre": "Juan Perez",
+      "producto": "Producto de prueba",
+      "cantidad": 2,
+      "precioUnitario": 300.00,
+      "metodoPago": "TARJETA"
+    }
+order: 1000
